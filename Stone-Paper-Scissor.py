@@ -1,1 +1,52 @@
-{"nbformat":4,"nbformat_minor":0,"metadata":{"colab":{"provenance":[],"authorship_tag":"ABX9TyNZilvq0t+nFGVenZgxz91x"},"kernelspec":{"name":"python3","display_name":"Python 3"},"language_info":{"name":"python"}},"cells":[{"cell_type":"code","execution_count":null,"metadata":{"colab":{"base_uri":"https://localhost:8080/"},"id":"BbdbzCCOFSSV","outputId":"56296c4d-d4a0-4005-eb8a-c9e43b56377b"},"outputs":[{"output_type":"stream","name":"stdout","text":["-----------------------------\n"]}],"source":["import random\n","'''\n","REFERING\n","  game_options = { 1 : \"🪨\" ,\n","                  2 : \"📃\" ,\n","                  3 : \"✂️\" }\n","'''\n","game_move = [\"🪨\" , \"📃\" ,\"✂️\"]\n","game_options = [1,2,3]\n","\n","print(\"-----------------------------\")\n","user_input = int(input(\"Welcome To 🪨 📃 ✂️ Game\\n-----------------------------\\n1. Stone(🪨)\\n2. Paper(📃)\\n3. Scissor(✂️)\\nChoose Any One By Number : \"))\n","pc = random.choice(game_options)\n","print(\"-----------------------------\")\n","print(\"PC CHOOSE :\",game_move[pc - 1])\n","print(\"USER CHOOSE :\",game_move[user_input - 1])\n","print(\"-----------------------------\")\n","if pc == user_input:\n","  print(\" Match Tie 😑\")\n","elif pc == 1 and user_input == 2:\n","  print(\" You Win 💐\")\n","elif pc == 1 and user_input == 3:\n","  print(\" You Lose 😢\")\n","elif pc == 2 and user_input == 1:\n","  print(\" You Lose 😢\")\n","elif pc == 2 and user_input == 3:\n","  print(\" You Win 💐\")\n","elif pc == 3 and user_input == 1:\n","  print(\" You Win 💐\")\n","elif pc == 3 and user_input == 2:\n","  print(\" You Lose 😢\")\n","else:\n","  print(\" Invalid Input \")\n","\n","print(\"-----------------------------\")\n","print(\"Thanks For Playing 😀\\nHope You Enjoy The Game !\")\n","print(\"-----------------------------\")\n","print(\"Game Designed By\\n\\t ~ H a c k y B o y\\n-----------------------------\\nDeveloper - Hardik Patel\")"]}]}
+import random
+
+# Game symbols
+game_move = {
+    1: "🪨",   # Stone
+    2: "📃",   # Paper
+    3: "✂️"    # Scissor
+}
+
+print("-----------------------------")
+
+try:
+    user_input = int(input(
+        "Welcome To 🪨 📃 ✂️ Game\n"
+        "-----------------------------\n"
+        "1. Stone (🪨)\n"
+        "2. Paper (📃)\n"
+        "3. Scissor (✂️)\n"
+        "Choose Any One By Number : "
+    ))
+
+    if user_input not in game_move:
+        print("❌ Invalid Choice! Please select 1, 2, or 3.")
+    else:
+        pc = random.randint(1, 3)
+
+        print("-----------------------------")
+        print("PC CHOOSE   :", game_move[pc])
+        print("USER CHOOSE :", game_move[user_input])
+        print("-----------------------------")
+
+        if pc == user_input:
+            print("Match Tie 😑")
+        elif (
+            (user_input == 1 and pc == 3) or
+            (user_input == 2 and pc == 1) or
+            (user_input == 3 and pc == 2)
+        ):
+            print("You Win 💐")
+        else:
+            print("You Lose 😢")
+
+except ValueError:
+    print("❌ Invalid Input! Please enter a number.")
+
+print("-----------------------------")
+print("Thanks For Playing 😀")
+print("Hope You Enjoy The Game!")
+print("-----------------------------")
+print("Game Designed By\n\t~ H a c k y B o y")
+print("Developer - Hardik Patel")
+print("-----------------------------")
